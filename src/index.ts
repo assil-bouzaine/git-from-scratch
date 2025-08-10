@@ -1,3 +1,5 @@
+import type { hash_object_args } from "./types.ts";
+import { hash_object } from "./commands/hash_object.js"
 import * as fs from "fs"
 
 import { init } from "./commands/init.js"
@@ -18,7 +20,13 @@ async function main() {
       }
       cat_file(cat_file_args);
       break;
-
+    case "hash-object":
+      const hash_object_args: hash_object_args = {
+        flag: rest[0],
+        path: rest[1]
+      }
+      hash_object(hash_object_args);
+      break;
     default: console.error("unkown command");
   }
 }

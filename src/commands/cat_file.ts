@@ -5,13 +5,13 @@ export function cat_file(args: cat_file_args) {
   const { flag, hash } = args;
 
   if (flag !== "-p" || !hash) {
-    console.error(" usage: cat-file -p <hash>");
+    console.error("usage: cat-file -p <hash>");
     return;
   }
 
   const folder_name = hash.slice(0, 2);
   const file_name = hash.slice(2)
-  const path = `.git/objects/${folder_name}/${file_name}`
+  const path = `../.git/objects/${folder_name}/${file_name}`
 
 
 
