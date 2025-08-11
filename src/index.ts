@@ -5,6 +5,9 @@ import * as fs from "fs"
 import { init } from "./commands/init.js"
 import { cat_file } from "./commands/cat_file.js"
 import type { cat_file_args } from "./types"
+import type { ls_tree_args } from "./types";
+import { ls_tree } from "./commands/ls_tree.js";
+
 
 
 const args = process.argv.slice(2);
@@ -26,6 +29,14 @@ async function main() {
         path: rest[1]
       }
       hash_object(hash_object_args);
+      break;
+
+    case "ls-tree":
+      const ls_tree_args: ls_tree_args = {
+        flag: rest[0],
+        hash: rest[1]
+      }
+      ls_tree(ls_tree_args);
       break;
     default: console.error("unkown command");
   }

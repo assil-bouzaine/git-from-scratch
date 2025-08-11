@@ -7,3 +7,5 @@ export interface hash_object_args {
   flag: string | undefined;
   path: string | undefined;
 }
+
+export interface ls_tree_args extends cat_file_args { };
